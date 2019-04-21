@@ -8,24 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		0B757A97226852700007BA67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757A96226852700007BA67 /* AppDelegate.m */; };
-		0B757A9A226852700007BA67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757A99226852700007BA67 /* ViewController.m */; };
 		0B757A9D226852700007BA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B757A9B226852700007BA67 /* Main.storyboard */; };
-		0B757A9F226852710007BA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B757A9E226852710007BA67 /* Assets.xcassets */; };
 		0B757AA2226852710007BA67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B757AA0226852710007BA67 /* LaunchScreen.storyboard */; };
 		0B757AA5226852710007BA67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757AA4226852710007BA67 /* main.m */; };
+		0B757AB0226854090007BA67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757AAE226854090007BA67 /* ViewController.m */; };
+		0B95C093226C217B00331509 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B95C092226C217B00331509 /* HomePageViewController.m */; };
+		0B95C096226C39A400331509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B95C095226C39A400331509 /* Assets.xcassets */; };
+		0BCFEA8C226AF02D0086BA0F /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFEA8B226AF02D0086BA0F /* Course.m */; };
+		0BCFEA8F226B27810086BA0F /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFEA8E226B27810086BA0F /* LoginController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B757A92226852700007BA67 /* MyFirstIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B757A95226852700007BA67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0B757A96226852700007BA67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0B757A98226852700007BA67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0B757A99226852700007BA67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0B757A9C226852700007BA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0B757A9E226852710007BA67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B757AA1226852710007BA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B757AA3226852710007BA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B757AA4226852710007BA67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0B757AAD226854090007BA67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0B757AAE226854090007BA67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0B95C091226C217B00331509 /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		0B95C092226C217B00331509 /* HomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		0B95C095226C39A400331509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BCFEA8A226AF02D0086BA0F /* Course.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		0BCFEA8B226AF02D0086BA0F /* Course.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		0BCFEA8D226B27810086BA0F /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		0BCFEA8E226B27810086BA0F /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,15 +67,21 @@
 		0B757A94226852700007BA67 /* MyFirstIOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				0B757A95226852700007BA67 /* AppDelegate.h */,
+				0B95C095226C39A400331509 /* Assets.xcassets */,
 				0B757A96226852700007BA67 /* AppDelegate.m */,
-				0B757A98226852700007BA67 /* ViewController.h */,
-				0B757A99226852700007BA67 /* ViewController.m */,
-				0B757A9B226852700007BA67 /* Main.storyboard */,
-				0B757A9E226852710007BA67 /* Assets.xcassets */,
 				0B757AA0226852710007BA67 /* LaunchScreen.storyboard */,
+				0B757A9B226852700007BA67 /* Main.storyboard */,
+				0B757A95226852700007BA67 /* AppDelegate.h */,
+				0B757AAD226854090007BA67 /* ViewController.h */,
+				0B757AAE226854090007BA67 /* ViewController.m */,
 				0B757AA3226852710007BA67 /* Info.plist */,
 				0B757AA4226852710007BA67 /* main.m */,
+				0BCFEA8A226AF02D0086BA0F /* Course.h */,
+				0BCFEA8B226AF02D0086BA0F /* Course.m */,
+				0BCFEA8D226B27810086BA0F /* LoginController.h */,
+				0BCFEA8E226B27810086BA0F /* LoginController.m */,
+				0B95C091226C217B00331509 /* HomePageViewController.h */,
+				0B95C092226C217B00331509 /* HomePageViewController.m */,
 			);
 			path = MyFirstIOSApp;
 			sourceTree = "<group>";
@@ -129,7 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B757AA2226852710007BA67 /* LaunchScreen.storyboard in Resources */,
-				0B757A9F226852710007BA67 /* Assets.xcassets in Resources */,
+				0B95C096226C39A400331509 /* Assets.xcassets in Resources */,
 				0B757A9D226852700007BA67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,7 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B757A9A226852700007BA67 /* ViewController.m in Sources */,
+				0BCFEA8F226B27810086BA0F /* LoginController.m in Sources */,
+				0BCFEA8C226AF02D0086BA0F /* Course.m in Sources */,
+				0B95C093226C217B00331509 /* HomePageViewController.m in Sources */,
+				0B757AB0226854090007BA67 /* ViewController.m in Sources */,
 				0B757AA5226852710007BA67 /* main.m in Sources */,
 				0B757A97226852700007BA67 /* AppDelegate.m in Sources */,
 			);
@@ -285,14 +303,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M93S47S5P2;
 				INFOPLIST_FILE = MyFirstIOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hilary.MyFirstIOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -301,14 +323,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M93S47S5P2;
 				INFOPLIST_FILE = MyFirstIOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hilary.MyFirstIOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

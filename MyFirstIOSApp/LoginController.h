@@ -1,8 +1,8 @@
 //
-//  ViewController.h
+//  LoginController.h
 //  MyFirstIOSApp
 //
-//  Created by Hilary Lin on 2019/4/18.
+//  Created by Hilary Lin on 2019/4/20.
 //  Copyright © 2019 Hilary Lin. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController : UITableViewController
+@interface LoginController : UIViewController
 
 @end
 
