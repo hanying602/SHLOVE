@@ -8,6 +8,7 @@
 
 #import "TodoListController.h"
 #import "AddTodoController.h"
+#import "Todo.h"
 @import Firebase;
 
 @interface TodoListController ()
@@ -16,9 +17,11 @@
 @end
 
 @implementation TodoListController {
-    NSMutableArray *nonFinishedRow;
-    NSMutableArray *finishedRow;
-    NSMutableArray *twoDimensionData;
+    NSMutableArray<Todo *> *nonFinishedRow;
+    NSMutableArray<Todo *> *finishedRow;
+    NSMutableArray<NSMutableArray<Todo *> *> *twoDimensionData;
+    UIActivityIndicatorView *loadingProgressDialog;
+    int progressCount;
 }
 
 NSString *eventsCellId = @"events";
@@ -32,35 +35,76 @@ NSString *eventsCellId = @"events";
 }
 
 - (void)initailData {
-    nonFinishedRow = [NSMutableArray array];
-    finishedRow = [NSMutableArray array];
-    twoDimensionData = [[NSMutableArray alloc] initWithObjects: nonFinishedRow, finishedRow, nil];
+    nonFinishedRow = [[NSMutableArray<Todo *> alloc] init];
+    finishedRow = [[NSMutableArray<Todo *> alloc] init];
+    twoDimensionData = [[NSMutableArray<NSMutableArray<Todo *> *> alloc] initWithObjects: nonFinishedRow, finishedRow, nil];
     
     self.ref = [[FIRDatabase database] reference];
     self.todoRef = [_ref child:@"todos"];
-
-    FIRDatabaseQuery *todosByNonfinished = [[_todoRef queryOrderedByChild:@"isDone"] queryEqualToValue: @NO];
+    
+    [self setUpLoadingProgressDialog];
+    [self showProgressDialog];
+    FIRDatabaseQuery *todosByNonfinished = [[_todoRef queryOrderedByChild:@"isDone"] queryEqualToValue: [NSNumber numberWithBool: NO]];
     [todosByNonfinished observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
         NSEnumerator *children = [snapshot children];
         FIRDataSnapshot *child;
         [self->nonFinishedRow removeAllObjects];
         while (child = [children nextObject]) {
-            [self->nonFinishedRow addObject: child.value[ @"title"]];
+            NSDictionary *todoDict = [[NSDictionary alloc] init];
+            todoDict = child.value;
+            Todo *todo = [[Todo alloc] init];
+            todo.todoId = child.key;
+            todo.title = todoDict[@"title"];
+            todo.isDone = todoDict[@"isDone"];
+            [self->nonFinishedRow addObject: todo];
         }
         [self.tableView reloadData];
+        self->progressCount++;
+        if (self->progressCount == 2){
+            [self dismissProgressDialog];
+        }
     }];
     
-    FIRDatabaseQuery *todosByFinished = [[_todoRef queryOrderedByChild:@"isDone"] queryEqualToValue: @YES];
+    FIRDatabaseQuery *todosByFinished = [[_todoRef queryOrderedByChild:@"isDone"] queryEqualToValue: [NSNumber numberWithBool: YES]];
     [todosByFinished observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
         NSEnumerator *children = [snapshot children];
         FIRDataSnapshot *child;
         [self->finishedRow removeAllObjects];
         while (child = [children nextObject]) {
-            [self->finishedRow addObject: child.value[ @"title"]];
+            NSDictionary *todoDict = [[NSDictionary alloc] init];
+            todoDict = child.value;
+            Todo *todo = [[Todo alloc] init];
+            todo.todoId = child.key;
+            todo.title = todoDict[@"title"];
+            todo.isDone = todoDict[@"isDone"];
+            [self->finishedRow addObject: todo];
         }
         [self.tableView reloadData];
+        self->progressCount++;
+        if (self->progressCount == 2){
+            [self dismissProgressDialog];
+        }
     }];
 
+}
+
+- (void)setUpLoadingProgressDialog {
+    loadingProgressDialog = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loadingProgressDialog.frame = CGRectMake(0.0, 0.0, 60.0, 60.0);
+    loadingProgressDialog.center = self.view.center;
+    [self.view addSubview:loadingProgressDialog];
+    [loadingProgressDialog bringSubviewToFront:self.view];
+}
+
+- (void)showProgressDialog {
+    progressCount = 0;
+    [loadingProgressDialog startAnimating];
+    [self.view setUserInteractionEnabled: NO];
+}
+
+- (void)dismissProgressDialog {
+    [loadingProgressDialog stopAnimating];
+    [self.view setUserInteractionEnabled: YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -85,7 +129,8 @@ NSString *eventsCellId = @"events";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: eventsCellId];
-    cell.textLabel.text = twoDimensionData[indexPath.section][indexPath.row];
+    Todo *todo =twoDimensionData[indexPath.section][indexPath.row];
+    cell.textLabel.text = todo.title;
     return cell;
 }
 

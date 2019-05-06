@@ -7,6 +7,7 @@
 //
 
 #import "AddTodoController.h"
+#import "Todo.h"
 @import Firebase;
 
 @interface AddTodoController ()
@@ -19,6 +20,7 @@
     UIColor *backgroundColor;
     UIColor *textColor;
     UIColor *buttonColor;
+    UIActivityIndicatorView *loadingProgressDialog;
 }
 
 - (UITextField*)titleTextField {
@@ -48,7 +50,7 @@
     
     [self.view addSubview: self.titleTextField];
     [self setUpNameTextField];
-    
+    [self setUpLoadingProgressDialog];
 }
 
 - (void)setUpNameTextField {
@@ -59,11 +61,29 @@
     [self.titleTextField addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];
 }
 
+- (void)setUpLoadingProgressDialog {
+    loadingProgressDialog = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loadingProgressDialog.frame = CGRectMake(0.0, 0.0, 60.0, 60.0);
+    loadingProgressDialog.center = self.view.center;
+    [self.view addSubview:loadingProgressDialog];
+    [loadingProgressDialog bringSubviewToFront:self.view];
+}
+
 - (void)handleNewTodoEvent {
-    [[_todoRef child:@([[NSDate date] timeIntervalSince1970]*1000000).stringValue]
-     setValue:@{@"title": self.titleTextField.text,
-                @"isDone": @NO
+    [loadingProgressDialog startAnimating];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    
+    Todo *todo = [[Todo alloc] init];
+    todo.todoId = @([[NSDate date] timeIntervalSince1970]*1000000).stringValue;
+    todo.title = self.titleTextField.text;
+    todo.isDone = [NSNumber numberWithBool: NO];
+
+    [[_todoRef child: todo.todoId]
+     setValue:@{@"title": todo.title,
+                @"isDone": todo.isDone
                 } withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                    [self->loadingProgressDialog stopAnimating];
                     [self.navigationController popViewControllerAnimated: YES];
                 }];
 }

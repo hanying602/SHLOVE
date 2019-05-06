@@ -10,14 +10,13 @@
 		0B29D52B227ECEB400CDE9E9 /* TodoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B29D52A227ECEB400CDE9E9 /* TodoListController.m */; };
 		0B6E753F227FEA1F00AAA0DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B6E753E227FEA1F00AAA0DD /* GoogleService-Info.plist */; };
 		0B6E7542227FF30700AAA0DD /* AddTodoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E7541227FF30700AAA0DD /* AddTodoController.m */; };
+		0B6E75452280237200AAA0DD /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E75442280237200AAA0DD /* Todo.m */; };
 		0B757A97226852700007BA67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757A96226852700007BA67 /* AppDelegate.m */; };
 		0B757A9D226852700007BA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B757A9B226852700007BA67 /* Main.storyboard */; };
 		0B757AA2226852710007BA67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B757AA0226852710007BA67 /* LaunchScreen.storyboard */; };
 		0B757AA5226852710007BA67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757AA4226852710007BA67 /* main.m */; };
-		0B757AB0226854090007BA67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757AAE226854090007BA67 /* ViewController.m */; };
 		0B95C093226C217B00331509 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B95C092226C217B00331509 /* HomePageViewController.m */; };
 		0B95C096226C39A400331509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B95C095226C39A400331509 /* Assets.xcassets */; };
-		0BCFEA8C226AF02D0086BA0F /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFEA8B226AF02D0086BA0F /* Course.m */; };
 		0BCFEA8F226B27810086BA0F /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFEA8E226B27810086BA0F /* LoginController.m */; };
 		AE042BE6D320E8A5ED43273F /* libPods-MyFirstIOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EB5BD4825F3EEA2D8AEDCD /* libPods-MyFirstIOSApp.a */; };
 /* End PBXBuildFile section */
@@ -28,6 +27,8 @@
 		0B6E753E227FEA1F00AAA0DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B6E7540227FF30700AAA0DD /* AddTodoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTodoController.h; sourceTree = "<group>"; };
 		0B6E7541227FF30700AAA0DD /* AddTodoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTodoController.m; sourceTree = "<group>"; };
+		0B6E75432280237200AAA0DD /* Todo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		0B6E75442280237200AAA0DD /* Todo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		0B757A92226852700007BA67 /* MyFirstIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B757A95226852700007BA67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0B757A96226852700007BA67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,13 +36,9 @@
 		0B757AA1226852710007BA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B757AA3226852710007BA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B757AA4226852710007BA67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0B757AAD226854090007BA67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0B757AAE226854090007BA67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0B95C091226C217B00331509 /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		0B95C092226C217B00331509 /* HomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		0B95C095226C39A400331509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0BCFEA8A226AF02D0086BA0F /* Course.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		0BCFEA8B226AF02D0086BA0F /* Course.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		0BCFEA8D226B27810086BA0F /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		0BCFEA8E226B27810086BA0F /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		303212F8F918252EECD12363 /* Pods-MyFirstIOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFirstIOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFirstIOSApp/Pods-MyFirstIOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,12 +85,8 @@
 				0B757AA0226852710007BA67 /* LaunchScreen.storyboard */,
 				0B757A9B226852700007BA67 /* Main.storyboard */,
 				0B757A95226852700007BA67 /* AppDelegate.h */,
-				0B757AAD226854090007BA67 /* ViewController.h */,
-				0B757AAE226854090007BA67 /* ViewController.m */,
 				0B757AA3226852710007BA67 /* Info.plist */,
 				0B757AA4226852710007BA67 /* main.m */,
-				0BCFEA8A226AF02D0086BA0F /* Course.h */,
-				0BCFEA8B226AF02D0086BA0F /* Course.m */,
 				0BCFEA8D226B27810086BA0F /* LoginController.h */,
 				0BCFEA8E226B27810086BA0F /* LoginController.m */,
 				0B95C091226C217B00331509 /* HomePageViewController.h */,
@@ -102,6 +95,8 @@
 				0B29D52A227ECEB400CDE9E9 /* TodoListController.m */,
 				0B6E7540227FF30700AAA0DD /* AddTodoController.h */,
 				0B6E7541227FF30700AAA0DD /* AddTodoController.m */,
+				0B6E75432280237200AAA0DD /* Todo.h */,
+				0B6E75442280237200AAA0DD /* Todo.m */,
 			);
 			path = MyFirstIOSApp;
 			sourceTree = "<group>";
@@ -218,11 +213,10 @@
 			files = (
 				0BCFEA8F226B27810086BA0F /* LoginController.m in Sources */,
 				0B6E7542227FF30700AAA0DD /* AddTodoController.m in Sources */,
-				0BCFEA8C226AF02D0086BA0F /* Course.m in Sources */,
 				0B29D52B227ECEB400CDE9E9 /* TodoListController.m in Sources */,
 				0B95C093226C217B00331509 /* HomePageViewController.m in Sources */,
-				0B757AB0226854090007BA67 /* ViewController.m in Sources */,
 				0B757AA5226852710007BA67 /* main.m in Sources */,
+				0B6E75452280237200AAA0DD /* Todo.m in Sources */,
 				0B757A97226852700007BA67 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
