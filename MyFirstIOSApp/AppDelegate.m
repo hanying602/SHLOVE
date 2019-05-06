@@ -14,17 +14,19 @@
 
 @end
 
+@import Firebase;
+
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FIRApp configure];
 
     self.window = UIWindow.new;
     [self.window makeKeyAndVisible];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: HomePageViewController.new];
     self.window.rootViewController.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.46 green:0.20 blue:0.25 alpha:1.0];
-    
     return YES;
 }
 

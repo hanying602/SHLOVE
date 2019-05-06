@@ -8,6 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "LoginController.h"
+#import "TodoListController.h"
 
 @interface HomePageViewController ()
 
@@ -18,6 +19,9 @@
 @property (strong, nonatomic) UIView *oliverContainerView;
 @property (strong, nonatomic) UILabel *daysNumberTextView;
 @property (strong, nonatomic) UILabel *daysTextView;
+
+@property (strong, nonatomic) UIButton *todoListButton;
+
 
 @end
 
@@ -33,7 +37,7 @@
 - (UIImageView*)oliverImageView {
     if (!_oliverImageView) {
         _oliverImageView = [[UIImageView alloc] initWithFrame: _oliverContainerView.bounds];
-        _oliverImageView.image = [UIImage imageNamed:@"profile_picture_oliver"];
+//        _oliverImageView.image = [UIImage imageNamed:@"profile_picture_oliver"];
         [_oliverImageView.layer setCornerRadius: profileImageSize/2];
         [_oliverImageView.layer setBorderColor:[[UIColor colorWithRed:78.0/255.0 green:82.0/255.0 blue:85.0/255.0 alpha:1] CGColor] ];
         [_oliverImageView.layer setMasksToBounds:YES];
@@ -44,7 +48,7 @@
 - (UIImageView*)hilaryImageView {
     if (!_hilaryImageView) {
         _hilaryImageView = [[UIImageView alloc] initWithFrame: _hilaryContainerView.bounds];
-        _hilaryImageView.image = [UIImage imageNamed:@"profile_picture_hilary"];
+//        _hilaryImageView.image = [UIImage imageNamed:@"profile_picture_hilary"];
         [_hilaryImageView.layer setCornerRadius: profileImageSize/2];
         [_hilaryImageView.layer setBorderColor:[[UIColor colorWithRed:78.0/255.0 green:82.0/255.0 blue:85.0/255.0 alpha:1] CGColor] ];
         [_hilaryImageView.layer setMasksToBounds:YES];
@@ -108,6 +112,15 @@
     return _daysTextView;
 }
 
+- (UIButton*)todoListButton {
+    if (!_todoListButton) {
+        _todoListButton = [[UIButton alloc] init];
+        [_todoListButton setBackgroundImage: [UIImage imageNamed:@"love_box"] forState: UIControlStateNormal];
+        _todoListButton.translatesAutoresizingMaskIntoConstraints = false;
+    }
+    return _todoListButton;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -129,6 +142,7 @@
     [self.view addSubview: self.oliverContainerView];
     [self.view addSubview: self.daysNumberTextView];
     [self.view addSubview: self.daysTextView];
+    [self.view addSubview: self.todoListButton];
 
     [self.hilaryContainerView addSubview: self.hilaryImageView];
     [self.oliverContainerView addSubview: self.oliverImageView];
@@ -139,6 +153,9 @@
     
     [self setUpDaysNumberTextView];
     [self setUpDaysTextView];
+    [self setUpWishListButton];
+    
+    [self.todoListButton addTarget: self action: @selector(presentTodoListController) forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -160,25 +177,40 @@
     [self.daysTextView.topAnchor constraintEqualToAnchor: self.daysNumberTextView.bottomAnchor].active = true;
     [self.daysTextView.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor].active = true;
     [self.daysTextView.widthAnchor constraintEqualToAnchor: self.view.widthAnchor constant: -100].active = true;
-    [self.daysTextView.heightAnchor constraintLessThanOrEqualToConstant: 50].active = true;
+    [self.daysTextView.heightAnchor constraintEqualToConstant: 50].active = true;
     self.daysNumberTextView.text = self.countDays;
+}
+
+- (void)setUpWishListButton {
+    [self.todoListButton.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor constant: -100].active = true;
+    [self.todoListButton.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor].active = true;
+    [self.todoListButton.widthAnchor constraintEqualToConstant: 50].active = true;
+    [self.todoListButton.heightAnchor constraintEqualToConstant: 50].active = true;
 }
 
 - (NSString*)countDays {
     NSString *beginDateString = @"2018-10-02";
+    
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat: @"yyyy-MM-dd"];
+    
     NSDate *beginDate = [df dateFromString: beginDateString];
+    NSDate *currentDate = [NSDate date];
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components: NSCalendarUnitDay fromDate: beginDate toDate: [NSDate date] options: 0];
-    return [NSString stringWithFormat: @"%ld", [components day]];
+    NSDateComponents *components = [calendar components: NSCalendarUnitDay fromDate: beginDate toDate: currentDate options: 0];
+
+    return @(components.day).stringValue;
 }
 
 - (void)presentLoginController {
     LoginController *loginController = LoginController.new;
     [self presentViewController:loginController animated:true completion:nil];
-    //    [self.navigationController pushViewController: loginController animated:true];
+}
+
+- (void)presentTodoListController {
+    TodoListController *todoListController = TodoListController.new;
+    [self.navigationController pushViewController: todoListController animated: true];
 }
 
 @end

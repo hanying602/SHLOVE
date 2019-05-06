@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B29D52B227ECEB400CDE9E9 /* TodoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B29D52A227ECEB400CDE9E9 /* TodoListController.m */; };
+		0B6E753F227FEA1F00AAA0DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B6E753E227FEA1F00AAA0DD /* GoogleService-Info.plist */; };
+		0B6E7542227FF30700AAA0DD /* AddTodoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E7541227FF30700AAA0DD /* AddTodoController.m */; };
 		0B757A97226852700007BA67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B757A96226852700007BA67 /* AppDelegate.m */; };
 		0B757A9D226852700007BA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B757A9B226852700007BA67 /* Main.storyboard */; };
 		0B757AA2226852710007BA67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B757AA0226852710007BA67 /* LaunchScreen.storyboard */; };
@@ -16,9 +19,15 @@
 		0B95C096226C39A400331509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B95C095226C39A400331509 /* Assets.xcassets */; };
 		0BCFEA8C226AF02D0086BA0F /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFEA8B226AF02D0086BA0F /* Course.m */; };
 		0BCFEA8F226B27810086BA0F /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFEA8E226B27810086BA0F /* LoginController.m */; };
+		AE042BE6D320E8A5ED43273F /* libPods-MyFirstIOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EB5BD4825F3EEA2D8AEDCD /* libPods-MyFirstIOSApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B29D529227ECEB400CDE9E9 /* TodoListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoListController.h; sourceTree = "<group>"; };
+		0B29D52A227ECEB400CDE9E9 /* TodoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoListController.m; sourceTree = "<group>"; };
+		0B6E753E227FEA1F00AAA0DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B6E7540227FF30700AAA0DD /* AddTodoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTodoController.h; sourceTree = "<group>"; };
+		0B6E7541227FF30700AAA0DD /* AddTodoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTodoController.m; sourceTree = "<group>"; };
 		0B757A92226852700007BA67 /* MyFirstIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B757A95226852700007BA67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0B757A96226852700007BA67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +44,9 @@
 		0BCFEA8B226AF02D0086BA0F /* Course.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		0BCFEA8D226B27810086BA0F /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		0BCFEA8E226B27810086BA0F /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		303212F8F918252EECD12363 /* Pods-MyFirstIOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFirstIOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFirstIOSApp/Pods-MyFirstIOSApp.release.xcconfig"; sourceTree = "<group>"; };
+		A1D21267A62F59ED16AFE9DF /* Pods-MyFirstIOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFirstIOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFirstIOSApp/Pods-MyFirstIOSApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E4EB5BD4825F3EEA2D8AEDCD /* libPods-MyFirstIOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFirstIOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE042BE6D320E8A5ED43273F /* libPods-MyFirstIOSApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +66,8 @@
 			children = (
 				0B757A94226852700007BA67 /* MyFirstIOSApp */,
 				0B757A93226852700007BA67 /* Products */,
+				A5A0039601278B6E1031DF33 /* Pods */,
+				AC2671E7EAB1D1B59605166C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,7 @@
 		0B757A94226852700007BA67 /* MyFirstIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B6E753E227FEA1F00AAA0DD /* GoogleService-Info.plist */,
 				0B95C095226C39A400331509 /* Assets.xcassets */,
 				0B757A96226852700007BA67 /* AppDelegate.m */,
 				0B757AA0226852710007BA67 /* LaunchScreen.storyboard */,
@@ -82,8 +98,29 @@
 				0BCFEA8E226B27810086BA0F /* LoginController.m */,
 				0B95C091226C217B00331509 /* HomePageViewController.h */,
 				0B95C092226C217B00331509 /* HomePageViewController.m */,
+				0B29D529227ECEB400CDE9E9 /* TodoListController.h */,
+				0B29D52A227ECEB400CDE9E9 /* TodoListController.m */,
+				0B6E7540227FF30700AAA0DD /* AddTodoController.h */,
+				0B6E7541227FF30700AAA0DD /* AddTodoController.m */,
 			);
 			path = MyFirstIOSApp;
+			sourceTree = "<group>";
+		};
+		A5A0039601278B6E1031DF33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1D21267A62F59ED16AFE9DF /* Pods-MyFirstIOSApp.debug.xcconfig */,
+				303212F8F918252EECD12363 /* Pods-MyFirstIOSApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC2671E7EAB1D1B59605166C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB5BD4825F3EEA2D8AEDCD /* libPods-MyFirstIOSApp.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +130,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B757AA8226852710007BA67 /* Build configuration list for PBXNativeTarget "MyFirstIOSApp" */;
 			buildPhases = (
+				2ACA2F8887556BD329E1D172 /* [CP] Check Pods Manifest.lock */,
 				0B757A8E226852700007BA67 /* Sources */,
 				0B757A8F226852700007BA67 /* Frameworks */,
 				0B757A90226852700007BA67 /* Resources */,
@@ -144,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B757AA2226852710007BA67 /* LaunchScreen.storyboard in Resources */,
+				0B6E753F227FEA1F00AAA0DD /* GoogleService-Info.plist in Resources */,
 				0B95C096226C39A400331509 /* Assets.xcassets in Resources */,
 				0B757A9D226852700007BA67 /* Main.storyboard in Resources */,
 			);
@@ -151,13 +190,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2ACA2F8887556BD329E1D172 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyFirstIOSApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0B757A8E226852700007BA67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0BCFEA8F226B27810086BA0F /* LoginController.m in Sources */,
+				0B6E7542227FF30700AAA0DD /* AddTodoController.m in Sources */,
 				0BCFEA8C226AF02D0086BA0F /* Course.m in Sources */,
+				0B29D52B227ECEB400CDE9E9 /* TodoListController.m in Sources */,
 				0B95C093226C217B00331509 /* HomePageViewController.m in Sources */,
 				0B757AB0226854090007BA67 /* ViewController.m in Sources */,
 				0B757AA5226852710007BA67 /* main.m in Sources */,
@@ -301,6 +363,7 @@
 		};
 		0B757AA9226852710007BA67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1D21267A62F59ED16AFE9DF /* Pods-MyFirstIOSApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -312,7 +375,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hilary.MyFirstIOSApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilary.SHLOVE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,6 +384,7 @@
 		};
 		0B757AAA226852710007BA67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 303212F8F918252EECD12363 /* Pods-MyFirstIOSApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -332,7 +396,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hilary.MyFirstIOSApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilary.SHLOVE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "wedding_ring.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "wedding_ring.png",
       "scale" : "2x"
     },
     {
