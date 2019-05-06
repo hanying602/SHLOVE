@@ -46,46 +46,33 @@ NSString *eventsCellId = @"events";
     [self showProgressDialog];
     FIRDatabaseQuery *todosByNonfinished = [[_todoRef queryOrderedByChild:@"isDone"] queryEqualToValue: [NSNumber numberWithBool: NO]];
     [todosByNonfinished observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
-        NSEnumerator *children = [snapshot children];
-        FIRDataSnapshot *child;
-        [self->nonFinishedRow removeAllObjects];
-        while (child = [children nextObject]) {
-            NSDictionary *todoDict = [[NSDictionary alloc] init];
-            todoDict = child.value;
-            Todo *todo = [[Todo alloc] init];
-            todo.todoId = child.key;
-            todo.title = todoDict[@"title"];
-            todo.isDone = todoDict[@"isDone"];
-            [self->nonFinishedRow addObject: todo];
-        }
-        [self.tableView reloadData];
-        self->progressCount++;
-        if (self->progressCount == 2){
-            [self dismissProgressDialog];
-        }
+        [self addSnapshotDataToTodoArray: snapshot toArray: self->nonFinishedRow];
     }];
     
     FIRDatabaseQuery *todosByFinished = [[_todoRef queryOrderedByChild:@"isDone"] queryEqualToValue: [NSNumber numberWithBool: YES]];
     [todosByFinished observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
-        NSEnumerator *children = [snapshot children];
-        FIRDataSnapshot *child;
-        [self->finishedRow removeAllObjects];
-        while (child = [children nextObject]) {
-            NSDictionary *todoDict = [[NSDictionary alloc] init];
-            todoDict = child.value;
-            Todo *todo = [[Todo alloc] init];
-            todo.todoId = child.key;
-            todo.title = todoDict[@"title"];
-            todo.isDone = todoDict[@"isDone"];
-            [self->finishedRow addObject: todo];
-        }
-        [self.tableView reloadData];
-        self->progressCount++;
-        if (self->progressCount == 2){
-            [self dismissProgressDialog];
-        }
+        [self addSnapshotDataToTodoArray: snapshot toArray: self->finishedRow];
     }];
 
+}
+
+- (void)addSnapshotDataToTodoArray :(FIRDataSnapshot*) firebaseSnapshot toArray:(NSMutableArray*) targetArray{
+    NSEnumerator *children = [firebaseSnapshot children];
+    FIRDataSnapshot *child;
+    [targetArray removeAllObjects];
+    while (child = [children nextObject]) {
+        NSDictionary *todoDict = [[NSDictionary alloc] init];
+        todoDict = child.value;
+        Todo *todo = [[Todo alloc] init];
+        todo.todoId = child.key;
+        todo.title = todoDict[@"title"];
+        todo.isDone = todoDict[@"isDone"];
+        [targetArray addObject: todo];
+    }
+    progressCount++;
+    if (progressCount == 2){
+        [self dismissProgressDialog];
+    }
 }
 
 - (void)setUpLoadingProgressDialog {
@@ -104,6 +91,7 @@ NSString *eventsCellId = @"events";
 
 - (void)dismissProgressDialog {
     [loadingProgressDialog stopAnimating];
+    [self.tableView reloadData];
     [self.view setUserInteractionEnabled: YES];
 }
 
