@@ -163,10 +163,17 @@
 }
 
 - (void)handleLogin {
-    [self dismissViewControllerAnimated:true completion:nil];
 //    [self.view endEditing:YES];
 //    if ([_nameTextField.text isEqualToString:@"OliverSu"] && [_passwordTextField.text isEqualToString:@"0114"]){
-//        [self dismissViewControllerAnimated:true completion:nil];
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSString *currentLevelKey = @"isLoggedIn";
+    
+    [preferences setBool:YES forKey:currentLevelKey];
+    //  Save to disk
+    const BOOL didSave = [preferences synchronize];
+    if (didSave){
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
 //    } else {
 //        [self showUIAlertView];
 //    }

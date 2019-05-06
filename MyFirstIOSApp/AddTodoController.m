@@ -41,7 +41,7 @@
     buttonColor = [UIColor colorWithRed:0.46 green:0.20 blue:0.25 alpha:1.0];
     self.view.backgroundColor = backgroundColor;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle: @"完成" style: UIBarButtonItemStylePlain target: self action: @selector(handleNewTodoEvent)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle: @"Done" style: UIBarButtonItemStylePlain target: self action: @selector(handleNewTodoEvent)];
     
     self.ref = [[FIRDatabase database] reference];
     self.todoRef = [_ref child:@"todos"];

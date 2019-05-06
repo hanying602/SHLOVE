@@ -26,7 +26,6 @@
 @end
 
 @implementation HomePageViewController {
-    bool isLonginControllerPresented;
     double profileImageSize;
     double marginTop;
     UIColor *backgroundColor;
@@ -37,7 +36,7 @@
 - (UIImageView*)oliverImageView {
     if (!_oliverImageView) {
         _oliverImageView = [[UIImageView alloc] initWithFrame: _oliverContainerView.bounds];
-//        _oliverImageView.image = [UIImage imageNamed:@"profile_picture_oliver"];
+        _oliverImageView.image = [UIImage imageNamed:@"profile_picture_oliver"];
         [_oliverImageView.layer setCornerRadius: profileImageSize/2];
         [_oliverImageView.layer setBorderColor:[[UIColor colorWithRed:78.0/255.0 green:82.0/255.0 blue:85.0/255.0 alpha:1] CGColor] ];
         [_oliverImageView.layer setMasksToBounds:YES];
@@ -48,7 +47,7 @@
 - (UIImageView*)hilaryImageView {
     if (!_hilaryImageView) {
         _hilaryImageView = [[UIImageView alloc] initWithFrame: _hilaryContainerView.bounds];
-//        _hilaryImageView.image = [UIImage imageNamed:@"profile_picture_hilary"];
+        _hilaryImageView.image = [UIImage imageNamed:@"profile_picture_hilary"];
         [_hilaryImageView.layer setCornerRadius: profileImageSize/2];
         [_hilaryImageView.layer setBorderColor:[[UIColor colorWithRed:78.0/255.0 green:82.0/255.0 blue:85.0/255.0 alpha:1] CGColor] ];
         [_hilaryImageView.layer setMasksToBounds:YES];
@@ -137,6 +136,8 @@
     bar.barTintColor = buttonColor;
     bar.translucent = NO;
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle: @"Logout" style: UIBarButtonItemStylePlain target: self action: @selector(handleLogoutEvent)];
+    
     [self.view addSubview: self.heartImageView];
     [self.view addSubview: self.hilaryContainerView];
     [self.view addSubview: self.oliverContainerView];
@@ -160,10 +161,20 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
-    if (!isLonginControllerPresented) {
+    if (![self checkIsLoggedIn]) {
         [self presentLoginController];
     }
-    isLonginControllerPresented = YES;
+}
+
+- (bool)checkIsLoggedIn {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSString *currentLevelKey = @"isLoggedIn";
+    if ([preferences objectForKey:currentLevelKey] == nil){
+        //  Doesn't exist.
+        return NO;
+    } else {
+        return [preferences integerForKey:currentLevelKey];
+    }
 }
 
 - (void)setUpDaysNumberTextView {
@@ -211,6 +222,17 @@
 - (void)presentTodoListController {
     TodoListController *todoListController = TodoListController.new;
     [self.navigationController pushViewController: todoListController animated: true];
+}
+
+- (void)handleLogoutEvent {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSString *currentLevelKey = @"isLoggedIn";
+    [preferences setBool:NO forKey:currentLevelKey];
+    //  Save to disk
+    const BOOL didSave = [preferences synchronize];
+    if (didSave){
+        [self presentLoginController];
+    }
 }
 
 @end

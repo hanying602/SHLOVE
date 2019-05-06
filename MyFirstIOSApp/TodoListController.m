@@ -27,7 +27,7 @@ NSString *eventsCellId = @"events";
     [super viewDidLoad];
     
     self.navigationItem.title = @"Todo";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle: @"新增" style: UIBarButtonItemStylePlain target: self action: @selector(handleAddEvent)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle: @"Add" style: UIBarButtonItemStylePlain target: self action: @selector(handleAddEvent)];
     [self initailData];
 }
 
@@ -43,6 +43,7 @@ NSString *eventsCellId = @"events";
     [todosByNonfinished observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
         NSEnumerator *children = [snapshot children];
         FIRDataSnapshot *child;
+        [self->nonFinishedRow removeAllObjects];
         while (child = [children nextObject]) {
             [self->nonFinishedRow addObject: child.value[ @"title"]];
         }
@@ -53,6 +54,7 @@ NSString *eventsCellId = @"events";
     [todosByFinished observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
         NSEnumerator *children = [snapshot children];
         FIRDataSnapshot *child;
+        [self->finishedRow removeAllObjects];
         while (child = [children nextObject]) {
             [self->finishedRow addObject: child.value[ @"title"]];
         }
